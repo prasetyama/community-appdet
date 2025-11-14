@@ -25,8 +25,7 @@
               "src/styles.css"
             ],
             "scripts": [],
-            "inlineStyleLanguage": "css",
-            "tailwindConfig": "tailwind.config.js"
+            "inlineStyleLanguage": "css"
           },
           "configurations": {
             "production": {
