@@ -24,7 +24,7 @@
                     class="w-full text-sm text-slate-700 input__form"
                   />
                 </div>
-                <div *ngIf="signUpForm.get('username')?.invalid && (signUpForm.get('username')?.dirty || signUpForm.get('username')?.touched)" class="text-red-500 text-sm">
+                <div *ngIf="signUpForm.get('username')?.invalid && (signUpForm.get('username')?.dirty || signUpForm.get('username')?.touched)" class="text-red-500 text-sm ml-2 mt-1">
                   <div *ngIf="signUpForm.get('username')?.errors?.['required']">Username is required.</div>
                   <div *ngIf="signUpForm.get('username')?.errors?.['minlength']">Username must be at least 3 characters long.</div>
                 </div>
@@ -45,7 +45,7 @@
                     class="w-full text-sm text-slate-700 input__form"
                   />
                 </div>
-                <div *ngIf="signUpForm.get('email')?.invalid && (signUpForm.get('email')?.dirty || signUpForm.get('email')?.touched)" class="text-red-500 text-sm">
+                <div *ngIf="signUpForm.get('email')?.invalid && (signUpForm.get('email')?.dirty || signUpForm.get('email')?.touched)" class="text-red-500 text-sm ml-2 mt-1">
                   <div *ngIf="signUpForm.get('email')?.errors?.['required']">Email is required.</div>
                   <div *ngIf="signUpForm.get('email')?.errors?.['email']">Please enter a valid email address.</div>
                 </div>
@@ -81,7 +81,7 @@
                       <icon-eye *ngIf="isPasswordVisible"></icon-eye>
                     </div>
                   </div>
-                  <div *ngIf="signUpForm.get('password')?.invalid && (signUpForm.get('password')?.dirty || signUpForm.get('password')?.touched)" class="text-red-500 text-sm">
+                  <div *ngIf="signUpForm.get('password')?.invalid && (signUpForm.get('password')?.dirty || signUpForm.get('password')?.touched)" class="text-red-500 text-sm ml-2 mt-1">
                     <div *ngIf="signUpForm.get('password')?.errors?.['required']">Password is required.</div>
                     <div *ngIf="signUpForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters long.</div>
                   </div>
@@ -116,7 +116,7 @@
                       <icon-eye *ngIf="isConfirmPasswordVisible"></icon-eye>
                     </div>
                   </div>
-                  <div *ngIf="signUpForm.get('confirmPassword')?.invalid && (signUpForm.get('confirmPassword')?.dirty || signUpForm.get('confirmPassword')?.touched)" class="text-red-500 text-sm">
+                  <div *ngIf="signUpForm.get('confirmPassword')?.invalid && (signUpForm.get('confirmPassword')?.dirty || signUpForm.get('confirmPassword')?.touched)" class="text-red-500 text-sm ml-2 mt-1">
                     <div *ngIf="signUpForm.get('confirmPassword')?.errors?.['required']">Confirm Password is required.</div>
                     <div *ngIf="signUpForm.get('confirmPassword')?.errors?.['mismatch']">Passwords must match.</div>
                   </div>

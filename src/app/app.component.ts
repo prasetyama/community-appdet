@@ -27,9 +27,11 @@ export class AppComponent {
   constructor(private readonly fb: FormBuilder) {}
  
   onSubmit(): void {
-    if (this.signUpForm.valid) {
-      console.log(this.signUpForm.value);
+    if (this.signUpForm.invalid) {
+      this.signUpForm.markAllAsTouched();
+      return;
     }
+    console.log('Form Submitted', this.signUpForm.value);
   }
 
   passwordMatchValidator(group: AbstractControl): ValidationErrors | null {
