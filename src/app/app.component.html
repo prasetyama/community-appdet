@@ -10,104 +10,133 @@
               <h2 class="mt-3 header__title">Buat Akun</h2>
             </div>
             <div class="space-y-4 form--signup">
-              <div class="relative">
-                <span class="pointer-events-none absolute inset-y-0 left-4 flex items-center text-slate-400">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10.5 1.82282C11.1428 1.82282 11.7711 2.01134 12.3056 2.36453C12.8401 2.71772 13.2566 3.21972 13.5026 3.80706C13.7486 4.39439 13.813 5.04067 13.6876 5.66419C13.5622 6.2877 13.2526 6.86043 12.7981 7.30995C12.3436 7.75948 11.7645 8.06561 11.134 8.18963C10.5036 8.31366 9.85014 8.25 9.25628 8.00672C8.66242 7.76344 8.15484 7.35146 7.79772 6.82287C7.44061 6.29428 7.25 5.67283 7.25 5.03711C7.25 4.18463 7.59241 3.36706 8.2019 2.76427C8.8114 2.16147 9.63805 1.82282 10.5 1.82282ZM10.5 0.537109C9.60009 0.537109 8.7204 0.80103 7.97216 1.2955C7.22391 1.78996 6.64073 2.49277 6.29635 3.31503C5.95197 4.1373 5.86186 5.0421 6.03743 5.91502C6.21299 6.78793 6.64634 7.58975 7.28266 8.21909C7.91899 8.84843 8.72973 9.27701 9.61234 9.45064C10.495 9.62428 11.4098 9.53516 12.2412 9.19457C13.0726 8.85397 13.7832 8.2772 14.2832 7.53718C14.7831 6.79715 15.05 5.92713 15.05 5.03711C15.05 3.84364 14.5706 2.69904 13.7173 1.85513C12.864 1.01122 11.7067 0.537109 10.5 0.537109ZM17 18.5371H15.7V15.3228C15.7 14.9007 15.6159 14.4827 15.4526 14.0928C15.2893 13.7028 15.0499 13.3485 14.7481 13.05C14.4463 12.7515 14.088 12.5147 13.6937 12.3532C13.2994 12.1917 12.8768 12.1085 12.45 12.1085H8.55C7.68805 12.1085 6.8614 12.4472 6.2519 13.05C5.64241 13.6528 5.3 14.4703 5.3 15.3228V18.5371H4V15.3228C4 14.1293 4.47937 12.9848 5.33266 12.1408C6.18595 11.2969 7.34326 10.8228 8.55 10.8228H12.45C13.6567 10.8228 14.814 11.2969 15.6673 12.1408C16.5206 12.9848 17 14.1293 17 15.3228V18.5371Z" fill="#87858B"/>
-                  </svg>
-                </span>
-                <input
-                  type="text"
-                  formControlName="username"
-                  placeholder="Username"
-                  class="w-full text-sm text-slate-700 input__form"
-                />
+              <div class="form__group">
+                <div class="relative">
+                  <span class="pointer-events-none absolute inset-y-0 left-4 flex items-center text-slate-400">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10.5 1.82282C11.1428 1.82282 11.7711 2.01134 12.3056 2.36453C12.8401 2.71772 13.2566 3.21972 13.5026 3.80706C13.7486 4.39439 13.813 5.04067 13.6876 5.66419C13.5622 6.2877 13.2526 6.86043 12.7981 7.30995C12.3436 7.75948 11.7645 8.06561 11.134 8.18963C10.5036 8.31366 9.85014 8.25 9.25628 8.00672C8.66242 7.76344 8.15484 7.35146 7.79772 6.82287C7.44061 6.29428 7.25 5.67283 7.25 5.03711C7.25 4.18463 7.59241 3.36706 8.2019 2.76427C8.8114 2.16147 9.63805 1.82282 10.5 1.82282ZM10.5 0.537109C9.60009 0.537109 8.7204 0.80103 7.97216 1.2955C7.22391 1.78996 6.64073 2.49277 6.29635 3.31503C5.95197 4.1373 5.86186 5.0421 6.03743 5.91502C6.21299 6.78793 6.64634 7.58975 7.28266 8.21909C7.91899 8.84843 8.72973 9.27701 9.61234 9.45064C10.495 9.62428 11.4098 9.53516 12.2412 9.19457C13.0726 8.85397 13.7832 8.2772 14.2832 7.53718C14.7831 6.79715 15.05 5.92713 15.05 5.03711C15.05 3.84364 14.5706 2.69904 13.7173 1.85513C12.864 1.01122 11.7067 0.537109 10.5 0.537109ZM17 18.5371H15.7V15.3228C15.7 14.9007 15.6159 14.4827 15.4526 14.0928C15.2893 13.7028 15.0499 13.3485 14.7481 13.05C14.4463 12.7515 14.088 12.5147 13.6937 12.3532C13.2994 12.1917 12.8768 12.1085 12.45 12.1085H8.55C7.68805 12.1085 6.8614 12.4472 6.2519 13.05C5.64241 13.6528 5.3 14.4703 5.3 15.3228V18.5371H4V15.3228C4 14.1293 4.47937 12.9848 5.33266 12.1408C6.18595 11.2969 7.34326 10.8228 8.55 10.8228H12.45C13.6567 10.8228 14.814 11.2969 15.6673 12.1408C16.5206 12.9848 17 14.1293 17 15.3228V18.5371Z" fill="#87858B"/>
+                    </svg>
+                  </span>
+                  <input
+                    type="text"
+                    formControlName="username"
+                    placeholder="Username"
+                    class="w-full text-sm text-slate-700 input__form"
+                  />
+                </div>
+                <div *ngIf="signUpForm.get('username')?.invalid && (signUpForm.get('username')?.dirty || signUpForm.get('username')?.touched)" class="text-red-500 text-sm">
+                  <div *ngIf="signUpForm.get('username')?.errors?.['required']">Username is required.</div>
+                  <div *ngIf="signUpForm.get('username')?.errors?.['minlength']">Username must be at least 3 characters long.</div>
+                </div>
               </div>
-              <div class="relative">
-                <span class="pointer-events-none absolute inset-y-0 left-4 flex items-center text-slate-400">
-                  <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18.125 16.7147H1.875C0.8375 16.7147 0 15.8533 0 14.7861V3.2147C0 2.14756 0.8375 1.28613 1.875 1.28613H18.125C19.1625 1.28613 20 2.14756 20 3.2147V14.7861C20 15.8533 19.1625 16.7147 18.125 16.7147ZM1.875 2.57185C1.525 2.57185 1.25 2.8547 1.25 3.2147V14.7861C1.25 15.1461 1.525 15.429 1.875 15.429H18.125C18.475 15.429 18.75 15.1461 18.75 14.7861V3.2147C18.75 2.8547 18.475 2.57185 18.125 2.57185H1.875Z" fill="#87858B"/>
-                    <path d="M9.99978 11.5195C9.12478 11.5195 8.32478 11.1595 7.72478 10.5038L1.16228 3.32952C0.924782 3.07238 0.937282 2.66095 1.18728 2.41667C1.43728 2.17238 1.83728 2.18524 2.07478 2.44238L8.63728 9.61667C9.34978 10.401 10.6498 10.401 11.3623 9.61667L17.9248 2.45524C18.1623 2.1981 18.5623 2.18524 18.8123 2.42952C19.0623 2.67381 19.0748 3.08524 18.8373 3.34238L12.2748 10.5167C11.6748 11.1724 10.8748 11.5324 9.99978 11.5324V11.5195Z" fill="#87858B"/>
-                  </svg>
+              <div class="form__group">
+                <div class="relative">
+                  <span class="pointer-events-none absolute inset-y-0 left-4 flex items-center text-slate-400">
+                    <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M18.125 16.7147H1.875C0.8375 16.7147 0 15.8533 0 14.7861V3.2147C0 2.14756 0.8375 1.28613 1.875 1.28613H18.125C19.1625 1.28613 20 2.14756 20 3.2147V14.7861C20 15.8533 19.1625 16.7147 18.125 16.7147ZM1.875 2.57185C1.525 2.57185 1.25 2.8547 1.25 3.2147V14.7861C1.25 15.1461 1.525 15.429 1.875 15.429H18.125C18.475 15.429 18.75 15.1461 18.75 14.7861V3.2147C18.75 2.8547 18.475 2.57185 18.125 2.57185H1.875Z" fill="#87858B"/>
+                      <path d="M9.99978 11.5195C9.12478 11.5195 8.32478 11.1595 7.72478 10.5038L1.16228 3.32952C0.924782 3.07238 0.937282 2.66095 1.18728 2.41667C1.43728 2.17238 1.83728 2.18524 2.07478 2.44238L8.63728 9.61667C9.34978 10.401 10.6498 10.401 11.3623 9.61667L17.9248 2.45524C18.1623 2.1981 18.5623 2.18524 18.8123 2.42952C19.0623 2.67381 19.0748 3.08524 18.8373 3.34238L12.2748 10.5167C11.6748 11.1724 10.8748 11.5324 9.99978 11.5324V11.5195Z" fill="#87858B"/>
+                    </svg>
 
-                </span>
-                <input
-                  type="email"
-                  formControlName="email"
-                  placeholder="Email"
-                  class="w-full text-sm text-slate-700 input__form"
-                />
+                  </span>
+                  <input
+                    type="email"
+                    formControlName="email"
+                    placeholder="Email"
+                    class="w-full text-sm text-slate-700 input__form"
+                  />
+                </div>
+                <div *ngIf="signUpForm.get('email')?.invalid && (signUpForm.get('email')?.dirty || signUpForm.get('email')?.touched)" class="text-red-500 text-sm">
+                  <div *ngIf="signUpForm.get('email')?.errors?.['required']">Email is required.</div>
+                  <div *ngIf="signUpForm.get('email')?.errors?.['email']">Please enter a valid email address.</div>
+                </div>
               </div>
               <div class="grid gap-4">
-                <div class="relative">
-                  <span class="pointer-events-none absolute inset-y-0 left-4 flex items-center text-slate-400">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <g clip-path="url(#clip0_3634_14196)">
-                        <path d="M16.6875 20H3.3125C2.175 20 1.25 19.075 1.25 17.9375V8.3125C1.25 7.175 2.175 6.25 3.3125 6.25H16.6875C17.825 6.25 18.75 7.175 18.75 8.3125V17.925C18.75 19.0625 17.825 19.9875 16.6875 19.9875V20ZM3.3125 7.5C2.8625 7.5 2.5 7.8625 2.5 8.3125V17.925C2.5 18.375 2.8625 18.7375 3.3125 18.7375H16.6875C17.1375 18.7375 17.5 18.375 17.5 17.925V8.3125C17.5 7.8625 17.1375 7.5 16.6875 7.5H3.3125Z" fill="#87858B"/>
-                        <path d="M15.6752 7.5H4.3252V5.675C4.3252 2.55 6.8752 0 10.0002 0C13.1252 0 15.6752 2.55 15.6752 5.675V7.5ZM5.5752 6.25H14.4252V5.675C14.4252 3.2375 12.4377 1.25 10.0002 1.25C7.5627 1.25 5.5752 3.2375 5.5752 5.675V6.25Z" fill="#87858B"/>
-                        <path d="M15 14.375C15.6904 14.375 16.25 13.8154 16.25 13.125C16.25 12.4346 15.6904 11.875 15 11.875C14.3096 11.875 13.75 12.4346 13.75 13.125C13.75 13.8154 14.3096 14.375 15 14.375Z" fill="#87858B"/>
-                        <path d="M10 14.375C10.6904 14.375 11.25 13.8154 11.25 13.125C11.25 12.4346 10.6904 11.875 10 11.875C9.30964 11.875 8.75 12.4346 8.75 13.125C8.75 13.8154 9.30964 14.375 10 14.375Z" fill="#87858B"/>
-                        <path d="M5 14.375C5.69036 14.375 6.25 13.8154 6.25 13.125C6.25 12.4346 5.69036 11.875 5 11.875C4.30964 11.875 3.75 12.4346 3.75 13.125C3.75 13.8154 4.30964 14.375 5 14.375Z" fill="#87858B"/>
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_3634_14196">
-                          <rect width="20" height="20" fill="white"/>
-                        </clipPath>
-                      </defs>
-                    </svg>
-                  </span>
-                  <input
-                    type="password"
-                    id="passwordInput"
-                    formControlName="password"
-                    placeholder="Kata Sandi"
-                    class="w-full text-sm text-slate-700 input__form"
-                  />
-                  <div class="absolute inset-y-0 right-4 flex items-center text-slate-400 cursor-pointer" (click)="togglePasswordVisibility()">
-                    <icon-eye-slash *ngIf="!isPasswordVisible"></icon-eye-slash>
-                    <icon-eye *ngIf="isPasswordVisible"></icon-eye>
+                <div class="form__group">
+                  <div class="relative">
+                    <span class="pointer-events-none absolute inset-y-0 left-4 flex items-center text-slate-400">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_3634_14196)">
+                          <path d="M16.6875 20H3.3125C2.175 20 1.25 19.075 1.25 17.9375V8.3125C1.25 7.175 2.175 6.25 3.3125 6.25H16.6875C17.825 6.25 18.75 7.175 18.75 8.3125V17.925C18.75 19.0625 17.825 19.9875 16.6875 19.9875V20ZM3.3125 7.5C2.8625 7.5 2.5 7.8625 2.5 8.3125V17.925C2.5 18.375 2.8625 18.7375 3.3125 18.7375H16.6875C17.1375 18.7375 17.5 18.375 17.5 17.925V8.3125C17.5 7.8625 17.1375 7.5 16.6875 7.5H3.3125Z" fill="#87858B"/>
+                          <path d="M15.6752 7.5H4.3252V5.675C4.3252 2.55 6.8752 0 10.0002 0C13.1252 0 15.6752 2.55 15.6752 5.675V7.5ZM5.5752 6.25H14.4252V5.675C14.4252 3.2375 12.4377 1.25 10.0002 1.25C7.5627 1.25 5.5752 3.2375 5.5752 5.675V6.25Z" fill="#87858B"/>
+                          <path d="M15 14.375C15.6904 14.375 16.25 13.8154 16.25 13.125C16.25 12.4346 15.6904 11.875 15 11.875C14.3096 11.875 13.75 12.4346 13.75 13.125C13.75 13.8154 14.3096 14.375 15 14.375Z" fill="#87858B"/>
+                          <path d="M10 14.375C10.6904 14.375 11.25 13.8154 11.25 13.125C11.25 12.4346 10.6904 11.875 10 11.875C9.30964 11.875 8.75 12.4346 8.75 13.125C8.75 13.8154 9.30964 14.375 10 14.375Z" fill="#87858B"/>
+                          <path d="M5 14.375C5.69036 14.375 6.25 13.8154 6.25 13.125C6.25 12.4346 5.69036 11.875 5 11.875C4.30964 11.875 3.75 12.4346 3.75 13.125C3.75 13.8154 4.30964 14.375 5 14.375Z" fill="#87858B"/>
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_3634_14196">
+                            <rect width="20" height="20" fill="white"/>
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </span>
+                    <input
+                      type="password"
+                      id="passwordInput"
+                      formControlName="password"
+                      placeholder="Kata Sandi"
+                      class="w-full text-sm text-slate-700 input__form"
+                    />
+                    <div class="absolute inset-y-0 right-4 flex items-center text-slate-400 cursor-pointer" (click)="togglePasswordVisibility()">
+                      <icon-eye-slash *ngIf="!isPasswordVisible"></icon-eye-slash>
+                      <icon-eye *ngIf="isPasswordVisible"></icon-eye>
+                    </div>
+                  </div>
+                  <div *ngIf="signUpForm.get('password')?.invalid && (signUpForm.get('password')?.dirty || signUpForm.get('password')?.touched)" class="text-red-500 text-sm">
+                    <div *ngIf="signUpForm.get('password')?.errors?.['required']">Password is required.</div>
+                    <div *ngIf="signUpForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters long.</div>
                   </div>
                 </div>
-                <div class="relative">
-                  <span class="pointer-events-none absolute inset-y-0 left-4 flex items-center text-slate-400">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <g clip-path="url(#clip0_3634_14196)">
-                        <path d="M16.6875 20H3.3125C2.175 20 1.25 19.075 1.25 17.9375V8.3125C1.25 7.175 2.175 6.25 3.3125 6.25H16.6875C17.825 6.25 18.75 7.175 18.75 8.3125V17.925C18.75 19.0625 17.825 19.9875 16.6875 19.9875V20ZM3.3125 7.5C2.8625 7.5 2.5 7.8625 2.5 8.3125V17.925C2.5 18.375 2.8625 18.7375 3.3125 18.7375H16.6875C17.1375 18.7375 17.5 18.375 17.5 17.925V8.3125C17.5 7.8625 17.1375 7.5 16.6875 7.5H3.3125Z" fill="#87858B"/>
-                        <path d="M15.6752 7.5H4.3252V5.675C4.3252 2.55 6.8752 0 10.0002 0C13.1252 0 15.6752 2.55 15.6752 5.675V7.5ZM5.5752 6.25H14.4252V5.675C14.4252 3.2375 12.4377 1.25 10.0002 1.25C7.5627 1.25 5.5752 3.2375 5.5752 5.675V6.25Z" fill="#87858B"/>
-                        <path d="M15 14.375C15.6904 14.375 16.25 13.8154 16.25 13.125C16.25 12.4346 15.6904 11.875 15 11.875C14.3096 11.875 13.75 12.4346 13.75 13.125C13.75 13.8154 14.3096 14.375 15 14.375Z" fill="#87858B"/>
-                        <path d="M10 14.375C10.6904 14.375 11.25 13.8154 11.25 13.125C11.25 12.4346 10.6904 11.875 10 11.875C9.30964 11.875 8.75 12.4346 8.75 13.125C8.75 13.8154 9.30964 14.375 10 14.375Z" fill="#87858B"/>
-                        <path d="M5 14.375C5.69036 14.375 6.25 13.8154 6.25 13.125C6.25 12.4346 5.69036 11.875 5 11.875C4.30964 11.875 3.75 12.4346 3.75 13.125C3.75 13.8154 4.30964 14.375 5 14.375Z" fill="#87858B"/>
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_3634_14196">
-                          <rect width="20" height="20" fill="white"/>
-                        </clipPath>
-                      </defs>
-                    </svg>
-                  </span>
-                  <input
-                    type="password"
-                    formControlName="confirmPassword"
-                    id="confirmPasswordInput"
-                    placeholder="Konfirmasi Kata Sandi"
-                    class="w-full text-sm text-slate-700 input__form"
-                  />
-                  <div class="absolute inset-y-0 right-4 flex items-center text-slate-400 cursor-pointer" (click)="toggleConfirmPasswordVisibility()">
-                    <icon-eye-slash *ngIf="!isConfirmPasswordVisible"></icon-eye-slash>
-                    <icon-eye *ngIf="isConfirmPasswordVisible"></icon-eye>
+                <div class="form__group">
+                  <div class="relative">
+                    <span class="pointer-events-none absolute inset-y-0 left-4 flex items-center text-slate-400">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_3634_14196)">
+                          <path d="M16.6875 20H3.3125C2.175 20 1.25 19.075 1.25 17.9375V8.3125C1.25 7.175 2.175 6.25 3.3125 6.25H16.6875C17.825 6.25 18.75 7.175 18.75 8.3125V17.925C18.75 19.0625 17.825 19.9875 16.6875 19.9875V20ZM3.3125 7.5C2.8625 7.5 2.5 7.8625 2.5 8.3125V17.925C2.5 18.375 2.8625 18.7375 3.3125 18.7375H16.6875C17.1375 18.7375 17.5 18.375 17.5 17.925V8.3125C17.5 7.8625 17.1375 7.5 16.6875 7.5H3.3125Z" fill="#87858B"/>
+                          <path d="M15.6752 7.5H4.3252V5.675C4.3252 2.55 6.8752 0 10.0002 0C13.1252 0 15.6752 2.55 15.6752 5.675V7.5ZM5.5752 6.25H14.4252V5.675C14.4252 3.2375 12.4377 1.25 10.0002 1.25C7.5627 1.25 5.5752 3.2375 5.5752 5.675V6.25Z" fill="#87858B"/>
+                          <path d="M15 14.375C15.6904 14.375 16.25 13.8154 16.25 13.125C16.25 12.4346 15.6904 11.875 15 11.875C14.3096 11.875 13.75 12.4346 13.75 13.125C13.75 13.8154 14.3096 14.375 15 14.375Z" fill="#87858B"/>
+                          <path d="M10 14.375C10.6904 14.375 11.25 13.8154 11.25 13.125C11.25 12.4346 10.6904 11.875 10 11.875C9.30964 11.875 8.75 12.4346 8.75 13.125C8.75 13.8154 9.30964 14.375 10 14.375Z" fill="#87858B"/>
+                          <path d="M5 14.375C5.69036 14.375 6.25 13.8154 6.25 13.125C6.25 12.4346 5.69036 11.875 5 11.875C4.30964 11.875 3.75 12.4346 3.75 13.125C3.75 13.8154 4.30964 14.375 5 14.375Z" fill="#87858B"/>
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_3634_14196">
+                            <rect width="20" height="20" fill="white"/>
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </span>
+                    <input
+                      type="password"
+                      formControlName="confirmPassword"
+                      id="confirmPasswordInput"
+                      placeholder="Konfirmasi Kata Sandi"
+                      class="w-full text-sm text-slate-700 input__form"
+                    />
+                    <div class="absolute inset-y-0 right-4 flex items-center text-slate-400 cursor-pointer" (click)="toggleConfirmPasswordVisibility()">
+                      <icon-eye-slash *ngIf="!isConfirmPasswordVisible"></icon-eye-slash>
+                      <icon-eye *ngIf="isConfirmPasswordVisible"></icon-eye>
+                    </div>
+                  </div>
+                  <div *ngIf="signUpForm.get('confirmPassword')?.invalid && (signUpForm.get('confirmPassword')?.dirty || signUpForm.get('confirmPassword')?.touched)" class="text-red-500 text-sm">
+                    <div *ngIf="signUpForm.get('confirmPassword')?.errors?.['required']">Confirm Password is required.</div>
+                    <div *ngIf="signUpForm.get('confirmPassword')?.errors?.['mismatch']">Passwords must match.</div>
                   </div>
                 </div>
               </div>
             </div>
-            <label class="flex items-start gap-3 text-xs text-slate-500">
-              <input
-                type="checkbox"
-                formControlName="acceptTerms"
-                class="mt-1 h-4 w-4 rounded-md border border-slate-300 text-purple-600 focus:ring-purple-500"
-              />
-              <span>
-                Saya telah membaca dan menyetujui <a href="#" class="font-semibold text-purple-600 hover:text-purple-500">Syarat &amp; Ketentuan</a> serta <a href="#" class="font-semibold text-purple-600 hover:text-purple-500">Kebijakan Privasi</a> Appdet.
-              </span>
+            <label class="flex flex-col items-start gap-3 text-xs text-slate-500">
+              <div class="form__group-checkbox w-full">
+                <input
+                  type="checkbox"
+                  formControlName="acceptTerms"
+                  class="mt-1 h-4 w-4 rounded-md border border-slate-300 text-purple-600 focus:ring-purple-500"
+                />
+                <span>
+                  Saya telah membaca dan menyetujui <a href="#" class="font-semibold text-purple-600 hover:text-purple-500">Syarat &amp; Ketentuan</a> serta <a href="#" class="font-semibold text-purple-600 hover:text-purple-500">Kebijakan Privasi</a> Appdet.
+                </span>
+              </div>
+              <div *ngIf="signUpForm.get('acceptTerms')?.invalid && (signUpForm.get('acceptTerms')?.dirty || signUpForm.get('acceptTerms')?.touched)" class="text-red-500 text-sm">
+                <div *ngIf="signUpForm.get('acceptTerms')?.errors?.['required']">You must accept the terms and conditions.</div>
+              </div>
             </label>
             <button
               type="submit"
