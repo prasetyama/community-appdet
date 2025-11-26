@@ -6,7 +6,11 @@ module.exports = {
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui']
       }
-    }
+    },
+    colors: {
+      fibrGreen: '#0fb286',
+      fibrNavy: '#032539'
+    },
   },
   plugins: []
 };
