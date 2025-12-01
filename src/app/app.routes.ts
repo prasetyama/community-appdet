@@ -6,5 +6,4 @@ export const routes: Routes = [
         path: 'community/:channelId',
         component: AppComponent
     }
-
 ]

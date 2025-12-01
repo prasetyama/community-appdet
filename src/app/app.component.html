@@ -1,4 +1,4 @@
-    <div class="flex justify-center lg:mt-0">
+    <div class="flex justify-center lg:mt-0" *ngIf="type === 'register'">
       <div class="w-full max-w-md bg-white" *ngIf="isSuccess === false">
         <img src="assets/images/bg-appdet.png" alt="Appdet Logo" class="w-full" />
         <div class="relative bg-white text-slate-900">
@@ -143,7 +143,7 @@
             </label>
             <button
               type="submit"
-              class="w-full rounded-2xl py-3 text-sm font-semibold text-white transition bg-[#6A39E5] relative"
+              class="w-full rounded-[8px] py-3 text-sm font-semibold text-white transition bg-[#6A39E5] relative"
               [ngClass]="{'bg-opacity-50': isLoading}"
             >
               <svg *ngIf="isLoading" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white absolute left-[20px]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -173,7 +173,7 @@
             <p class="text-center text-sm text-[#121212] font-normal">
               Sudah memiliki akun Appdet?
             </p>
-            <a routerLink="/login" class="font-bold text-sm text-purple-600 hover:text-purple-500">Sambungkan Akun</a>
+            <a [routerLink]="['/community', channelId]" [queryParams]="{ type: 'registered' }" class="font-bold text-sm text-purple-600 hover:text-purple-500 cursor-pointer">Sambungkan Akun</a>
           </div>
         </div>
       </div>
@@ -192,6 +192,63 @@
             </div>
         </div>
       </div>
+    </div>
+    <div class="registerd w-full min-h-screen flex items-center justify-center" *ngIf="type === 'registered'">
+      <div class="w-full max-w-md bg-white" *ngIf="isSuccess === false">
+        <img src="assets/images/bg-appdet.png" alt="Appdet Logo" class="w-full" />
+        <div class="relative bg-white text-slate-900">
+
+          <form class="space-y-5 px-8 pb-6" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+            <div class="mt-6 header">
+              <div class="inline-block rounded-full bg-channel">
+                <p class="text-xs text-[#6A39E5]">Tahseel Channel</p>
+              </div>
+              <h2 class="mt-3 header__title">Sambungkan Akun</h2>
+            </div>
+            <div class="space-y-4 form--signup">
+              <div class="form__group">
+                <div class="relative">
+                  <span class="pointer-events-none absolute inset-y-0 left-4 flex items-center text-slate-400">
+                    <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M18.125 16.7147H1.875C0.8375 16.7147 0 15.8533 0 14.7861V3.2147C0 2.14756 0.8375 1.28613 1.875 1.28613H18.125C19.1625 1.28613 20 2.14756 20 3.2147V14.7861C20 15.8533 19.1625 16.7147 18.125 16.7147ZM1.875 2.57185C1.525 2.57185 1.25 2.8547 1.25 3.2147V14.7861C1.25 15.1461 1.525 15.429 1.875 15.429H18.125C18.475 15.429 18.75 15.1461 18.75 14.7861V3.2147C18.75 2.8547 18.475 2.57185 18.125 2.57185H1.875Z" fill="#87858B"/>
+                      <path d="M9.99978 11.5195C9.12478 11.5195 8.32478 11.1595 7.72478 10.5038L1.16228 3.32952C0.924782 3.07238 0.937282 2.66095 1.18728 2.41667C1.43728 2.17238 1.83728 2.18524 2.07478 2.44238L8.63728 9.61667C9.34978 10.401 10.6498 10.401 11.3623 9.61667L17.9248 2.45524C18.1623 2.1981 18.5623 2.18524 18.8123 2.42952C19.0623 2.67381 19.0748 3.08524 18.8373 3.34238L12.2748 10.5167C11.6748 11.1724 10.8748 11.5324 9.99978 11.5324V11.5195Z" fill="#87858B"/>
+                    </svg>
+
+                  </span>
+                  <input
+                    type="email"
+                    formControlName="email"
+                    placeholder="Email"
+                    class="w-full text-sm text-slate-700 input__form"
+                  />
+                </div>
+                <div *ngIf="signUpForm.get('email')?.invalid && (signUpForm.get('email')?.dirty || signUpForm.get('email')?.touched)" class="text-red-500 text-sm ml-2 mt-1">
+                  <div *ngIf="signUpForm.get('email')?.errors?.['required']">Email is required.</div>
+                  <div *ngIf="signUpForm.get('email')?.errors?.['email']">Please enter a valid email address.</div>
+                </div>
+              </div>
+            </div>
+            <button
+              type="submit"
+              class="w-full rounded-[8px] py-3 text-sm font-semibold text-white transition bg-[#6A39E5] relative"
+              [ngClass]="{'bg-opacity-50': isLoading}"
+            >
+              <svg *ngIf="isLoading" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white absolute left-[20px]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              {{ isLoading ? 'Memproses...' : 'Sambungkan' }}
+            </button>
+          </form>
+          <div class="flex flex-col justify-center items-center pb-6">
+            <p class="text-center text-sm text-[#121212] font-normal">
+              Belum memiliki akun Appdet?
+            </p>
+            <a [routerLink]="['/community', channelId]" [queryParams]="{ type: 'register' }" class="font-bold text-sm text-purple-600 hover:text-purple-500 cursor-pointer">Buat Akun</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   
 <fibr-alerts></fibr-alerts>

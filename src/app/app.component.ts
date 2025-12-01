@@ -3,7 +3,7 @@ import { ReactiveFormsModule, FormBuilder, Validators, AbstractControl, Validati
 import { CommonModule } from '@angular/common';
 import { EyeSlashIconComponent } from './shared/components/icons/icon-eye-slash';
 import { EyeIconComponent } from './shared/components/icons/icon-eye';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { AlertsService } from './services/alerts.service';
 import { CommunityApiComponent } from './features/api/community-api.component';
 import { payloadNewReq } from './features/models';
@@ -12,7 +12,7 @@ import { AlertsComponent } from './shared/components/alerts/alerts.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, EyeSlashIconComponent, EyeIconComponent, AlertsComponent],
+  imports: [CommonModule, ReactiveFormsModule, EyeSlashIconComponent, EyeIconComponent, AlertsComponent, RouterLink],
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
@@ -34,6 +34,7 @@ export class AppComponent implements OnInit {
 
   isLoading: boolean = false;
   isSuccess: boolean = false;
+  type: string = ''
  
   constructor(private readonly fb: FormBuilder, private alertService: AlertsService, private communityApi: CommunityApiComponent) {}
 
@@ -41,6 +42,10 @@ export class AppComponent implements OnInit {
     const url = window.location.pathname;
     const parts = url.split('/');
     this.channelId = parts[2];
+
+    this.route.queryParamMap.subscribe(params => {
+      this.type = params.get('type') || 'register'
+    });
   }
  
   onSubmit(): void {
@@ -62,6 +67,7 @@ export class AppComponent implements OnInit {
       if (res.isSuccess) {
         this.isSuccess = true;
         this.alertService.SetToast({type: 'success', message: 'Registration success'});
+        this.isSuccess = true;
       } else {
         this.alertService.SetToast({type: 'error', message: `Registrasi Gagal : ${res.error.error.error.message}`});
       }
