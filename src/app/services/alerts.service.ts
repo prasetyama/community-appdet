@@ -10,6 +10,6 @@ export class AlertsService {
 
   SetToast(toast: { type: string, message: string }) {
     this.toastSubject.next(toast);
-    setTimeout(() => this.toastSubject.next(null), 5000); // Clear the toast after 5 seconds
+    setTimeout(() => this.toastSubject.next(null), 5000);
   }
 }

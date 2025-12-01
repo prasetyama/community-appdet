@@ -7,11 +7,12 @@ import { ActivatedRoute } from '@angular/router';
 import { AlertsService } from './services/alerts.service';
 import { CommunityApiComponent } from './features/api/community-api.component';
 import { payloadNewReq } from './features/models';
+import { AlertsComponent } from './shared/components/alerts/alerts.component';
  
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, EyeSlashIconComponent, EyeIconComponent],
+  imports: [CommonModule, ReactiveFormsModule, EyeSlashIconComponent, EyeIconComponent, AlertsComponent],
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {

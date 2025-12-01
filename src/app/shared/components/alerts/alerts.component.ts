@@ -10,7 +10,7 @@ export type ToastType = 'success' | 'error' | 'info';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './alerts.component.html',
-  styleUrl: './alerts.component.css'
+  styleUrl: './alerts.component.scss'
 })
 
 export class AlertsComponent {
