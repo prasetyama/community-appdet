@@ -6,7 +6,7 @@ import { EyeIconComponent } from './shared/components/icons/icon-eye';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { AlertsService } from './services/alerts.service';
 import { CommunityApiComponent } from './features/api/community-api.component';
-import { payloadNewReq } from './features/models';
+import { payloadNewReq, payloadReq } from './features/models';
 import { AlertsComponent } from './shared/components/alerts/alerts.component';
  
 @Component({
@@ -25,6 +25,10 @@ export class AppComponent implements OnInit {
     confirmPassword: ['', Validators.required],
     acceptTerms: [false, Validators.requiredTrue]
   }, { validators: this.passwordMatchValidator.bind(this) });
+
+  readonly linkedForm = this.fb.nonNullable.group({
+    email: ['', [Validators.required, Validators.email]],
+  });
  
   isPasswordVisible: boolean = false;
   isConfirmPasswordVisible: boolean = false;
@@ -70,6 +74,30 @@ export class AppComponent implements OnInit {
         this.isSuccess = true;
       } else {
         this.alertService.SetToast({type: 'error', message: `Registrasi Gagal : ${res.error.error.error.message}`});
+      }
+    });
+  }
+
+  onLinked(): void {
+    this.isLoading = true;
+    if (this.linkedForm.invalid) {
+      this.isLoading = false;
+      this.linkedForm.markAllAsTouched();
+      return;
+    }
+    const payload: payloadReq = {
+      channelId: this.channelId as string,
+      email: this.linkedForm.value.email || '',
+      mode: 'existing',
+    }
+    this.communityApi.regisChannel(payload).then( res => {
+      this.isLoading = false;
+      if (res.isSuccess) {
+        this.isSuccess = true;
+        this.alertService.SetToast({type: 'success', message: 'Linking success'});
+        this.isSuccess = true;
+      } else {
+        this.alertService.SetToast({type: 'error', message: `Linking Gagal : ${res.error.error.error.message}`});
       }
     });
   }

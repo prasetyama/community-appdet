@@ -198,7 +198,7 @@
         <img src="assets/images/bg-appdet.png" alt="Appdet Logo" class="w-full" />
         <div class="relative bg-white text-slate-900">
 
-          <form class="space-y-5 px-8 pb-6" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+          <form class="space-y-5 px-8 pb-6" [formGroup]="linkedForm" (ngSubmit)="onLinked()">
             <div class="mt-6 header">
               <div class="inline-block rounded-full bg-channel">
                 <p class="text-xs text-[#6A39E5]">Tahseel Channel</p>
@@ -222,9 +222,9 @@
                     class="w-full text-sm text-slate-700 input__form"
                   />
                 </div>
-                <div *ngIf="signUpForm.get('email')?.invalid && (signUpForm.get('email')?.dirty || signUpForm.get('email')?.touched)" class="text-red-500 text-sm ml-2 mt-1">
-                  <div *ngIf="signUpForm.get('email')?.errors?.['required']">Email is required.</div>
-                  <div *ngIf="signUpForm.get('email')?.errors?.['email']">Please enter a valid email address.</div>
+                <div *ngIf="linkedForm.get('email')?.invalid && (linkedForm.get('email')?.dirty || linkedForm.get('email')?.touched)" class="text-red-500 text-sm ml-2 mt-1">
+                  <div *ngIf="linkedForm.get('email')?.errors?.['required']">Email is required.</div>
+                  <div *ngIf="linkedForm.get('email')?.errors?.['email']">Please enter a valid email address.</div>
                 </div>
               </div>
             </div>

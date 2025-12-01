@@ -14,7 +14,7 @@ export class CommunityApiComponent {
     constructor(private http: HttpClient) {
      }
 
-    async regisChannel(payload: payloadNewReq) {
+    async regisChannel(payload: any) {
         const header = { 'Content-Type': 'application/json' };   
         try {
             const result = await lastValueFrom(this.http.post(`${environment.apiUrl}/regUserByChannelPublic`, {data: payload}, { headers: header }));
