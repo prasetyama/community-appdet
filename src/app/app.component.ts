@@ -1,8 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { EyeSlashIconComponent } from './shared/components/icons/icon-eye-slash';
 import { EyeIconComponent } from './shared/components/icons/icon-eye';
+import { ActivatedRoute } from '@angular/router';
+import { AlertsService } from './services/alerts.service';
+import { CommunityApiComponent } from './features/api/community-api.component';
+import { payloadNewReq } from './features/models';
  
 @Component({
   selector: 'app-root',
@@ -10,7 +14,9 @@ import { EyeIconComponent } from './shared/components/icons/icon-eye';
   imports: [CommonModule, ReactiveFormsModule, EyeSlashIconComponent, EyeIconComponent],
   templateUrl: './app.component.html'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  private route: ActivatedRoute = inject(ActivatedRoute);
+
   readonly signUpForm = this.fb.nonNullable.group({
     username: ['', [Validators.required, Validators.minLength(3)]],
     email: ['', [Validators.required, Validators.email]],
@@ -23,15 +29,36 @@ export class AppComponent {
   isConfirmPasswordVisible: boolean = false;
 
   isInvalid = false;
+  channelId: string | null = null;
  
-  constructor(private readonly fb: FormBuilder) {}
+  constructor(private readonly fb: FormBuilder, private alertService: AlertsService, private communityApi: CommunityApiComponent) {}
+
+  ngOnInit(): void {
+    const url = window.location.pathname;
+    const parts = url.split('/');
+    this.channelId = parts[2];
+  }
  
   onSubmit(): void {
     if (this.signUpForm.invalid) {
       this.signUpForm.markAllAsTouched();
       return;
     }
-    console.log('Form Submitted', this.signUpForm.value);
+    const payload: payloadNewReq = {
+      channelId: this.channelId as string,
+      username: this.signUpForm.value.username || '',
+      email: this.signUpForm.value.email || '',
+      password: this.signUpForm.value.password || '',
+      mode: 'new',
+    }
+    this.communityApi.regisChannel(payload).then( res => {
+      console.log('Registration Result:', res);
+      if (res.isSuccess) {
+        this.alertService.SetToast({type: 'success', message: 'Registration successful! Please check your email to verify your account.'});
+      } else {
+        this.alertService.SetToast({type: 'error', message: `Registration failed: ${res.error.message}`});
+      }
+    });
   }
 
   passwordMatchValidator(group: AbstractControl): ValidationErrors | null {

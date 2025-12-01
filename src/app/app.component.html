@@ -118,7 +118,10 @@
                   </div>
                   <div *ngIf="signUpForm.get('confirmPassword')?.invalid && (signUpForm.get('confirmPassword')?.dirty || signUpForm.get('confirmPassword')?.touched)" class="text-red-500 text-sm ml-2 mt-1">
                     <div *ngIf="signUpForm.get('confirmPassword')?.errors?.['required']">Confirm Password is required.</div>
-                    <div *ngIf="signUpForm.get('confirmPassword')?.errors?.['mismatch']">Passwords must match.</div>
+                    <div *ngIf="signUpForm.get('confirmPassword')?.errors?.['mismatch']">Passwords must match.</div>                    
+                  </div>
+                  <div *ngIf="signUpForm.errors?.['passwordMismatch'] && (signUpForm.get('confirmPassword')?.touched || signUpForm.get('password')?.touched)" class="text-red-500 mt-2">
+                    Password did not match
                   </div>
                 </div>
               </div>
