@@ -30,6 +30,8 @@ export class AppComponent implements OnInit {
 
   isInvalid = false;
   channelId: string | null = null;
+
+  isLoading: boolean = false;
  
   constructor(private readonly fb: FormBuilder, private alertService: AlertsService, private communityApi: CommunityApiComponent) {}
 
@@ -40,7 +42,9 @@ export class AppComponent implements OnInit {
   }
  
   onSubmit(): void {
+    this.isLoading = true;
     if (this.signUpForm.invalid) {
+      this.isLoading = false;
       this.signUpForm.markAllAsTouched();
       return;
     }
@@ -52,11 +56,12 @@ export class AppComponent implements OnInit {
       mode: 'new',
     }
     this.communityApi.regisChannel(payload).then( res => {
+      this.isLoading = false;
       console.log('Registration Result:', res);
       if (res.isSuccess) {
         this.alertService.SetToast({type: 'success', message: 'Registration successful! Please check your email to verify your account.'});
       } else {
-        this.alertService.SetToast({type: 'error', message: `Registration failed: ${res.error.message}`});
+        this.alertService.SetToast({type: 'error', message: `Registration failed: ${res.error.error.message}`});
       }
     });
   }

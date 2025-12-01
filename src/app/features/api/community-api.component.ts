@@ -2,7 +2,8 @@ import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { failure, success } from "../../shared/libs/error";
 import { payloadNewReq } from "../models";
-import { getFunctions, httpsCallable } from "@angular/fire/functions";
+import { lastValueFrom } from "rxjs";
+import { environment } from "../../../environments/environment";
 
 @Injectable({
     providedIn: 'root',
@@ -14,18 +15,10 @@ export class CommunityApiComponent {
      }
 
     async regisChannel(payload: payloadNewReq) {
+        const header = { 'Content-Type': 'application/json' };   
         try {
-            const functions = getFunctions(undefined, 'asia-southeast2');
-            const callable = httpsCallable(functions, 'regUserByChannelPublic');
-            try {
-                const result = await callable(
-                    payload
-                );
-                return success(result);
-            } catch (error) {
-                const errors = error as HttpErrorResponse;
-                return failure(errors);
-            }
+            const result = await lastValueFrom(this.http.post(`${environment.apiUrl}/regUserByChannelPublic`, {data: payload}, { headers: header }));
+            return success(result);
         } catch (error) {
             const errors = error as HttpErrorResponse;
             return failure(errors);

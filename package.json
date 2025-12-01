@@ -12,8 +12,8 @@
   "dependencies": {
     "@angular/animations": "^17.2.0",
     "@angular/common": "^19.2.16",
-    "@angular/compiler": "^17.2.0",
-    "@angular/core": "^17.2.0",
+    "@angular/compiler": "^19.0.0",
+    "@angular/core": "^19.0.0",
     "@angular/fire": "^20.0.1",
     "@angular/forms": "^19.2.16",
     "@angular/platform-browser": "^19.2.16",
@@ -26,12 +26,12 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^19.2.19",
-    "@angular/cli": "^19.2.19",
-    "@angular/compiler-cli": "^17.2.0",
+    "@angular/cli": "^19.0.6",
+    "@angular/compiler-cli": "^19.0.0",
     "@types/node": "^20.11.24",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.33",
     "tailwindcss": "^3.4.1",
-    "typescript": "~5.3.3"
+    "typescript": "~5.6.2"
   }
 }
