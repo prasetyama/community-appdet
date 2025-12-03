@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy:dev": "ts-node -P  scripts/tsconfig.script.json scripts/index.ts --env dev",
+    "deploy:prod": "ts-node -P  scripts/tsconfig.script.json scripts/index.ts --env prod"
   },
   "private": true,
   "dependencies": {
@@ -21,7 +23,9 @@
     "@angular/router": "^19.2.16",
     "firebase-tools": "^13.35.1",
     "rxjs": "~7.8.0",
+    "ts-node": "^10.9.2",
     "tslib": "^2.3.0",
+    "yargs": "^17.7.2",
     "zone.js": "~0.14.3"
   },
   "devDependencies": {

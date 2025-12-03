@@ -1,0 +1,26 @@
+{
+  "hosting": [
+    {
+      "site": "community-appdet-dev",
+      "public": "dist/community-appdet/browser",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "site": "community-appdet-prod",
+      "public": "dist/community-appdet/browser",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

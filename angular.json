@@ -72,6 +72,23 @@
           },
           "defaultConfiguration": "development"
         },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "community-appdet:build:production",
+              "serveTarget": "community-appdet:serve:production"
+            },
+            "dev": {
+              "buildTarget": "community-appdet:build:dev",
+              "serveTarget": "community-appdet:serve:dev"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {

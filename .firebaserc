@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "appdet-prod",
+    "prod": "appdet-dev"
+  }
+}
