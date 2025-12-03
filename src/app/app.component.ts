@@ -40,6 +40,7 @@ export class AppComponent implements OnInit {
   isLoadingGoogle: boolean = false;
   isSuccess: boolean = false;
   type: string = ''
+  channelName: string = ''
  
   constructor(private readonly fb: FormBuilder, private alertService: AlertsService, private communityApi: CommunityApiComponent) {}
 
@@ -51,6 +52,8 @@ export class AppComponent implements OnInit {
     this.route.queryParamMap.subscribe(params => {
       this.type = params.get('type') || 'register'
     });
+
+    this.fetchChannel(this.channelId as string);
   }
  
   onSubmit(): void {
@@ -144,5 +147,14 @@ export class AppComponent implements OnInit {
     const input = document.getElementById('passwordInput') as HTMLInputElement;
     this.isPasswordVisible = !this.isPasswordVisible;
     input.type = this.isPasswordVisible ? 'text' : 'password';
+  }
+
+  fetchChannel(id: string) {
+    this.communityApi.fetchCommunityById(id).then( res => {
+      this.channelName = res?.name || '';
+      if (!res) {
+        this.isInvalid = true;
+      }
+    });
   }
 }

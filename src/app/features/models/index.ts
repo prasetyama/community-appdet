@@ -11,3 +11,8 @@ export class payloadReq {
     email: string = '' ;
     channelId: string = '' ;
 }
+
+export type Channel = {
+    id: string;
+    name: string;
+}
