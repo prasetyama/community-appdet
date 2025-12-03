@@ -6,6 +6,7 @@
 /e2e/test-output/
 /.angular/
 .angular/
+/src/environments/environment*.ts
 
 # Node modules and dependency files
 /node_modules/
