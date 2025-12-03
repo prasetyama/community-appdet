@@ -37,6 +37,7 @@ export class AppComponent implements OnInit {
   channelId: string | null = null;
 
   isLoading: boolean = false;
+  isLoadingGoogle: boolean = false;
   isSuccess: boolean = false;
   type: string = ''
  
@@ -71,7 +72,6 @@ export class AppComponent implements OnInit {
       if (res.isSuccess) {
         this.isSuccess = true;
         this.alertService.SetToast({type: 'success', message: 'Registration success'});
-        this.isSuccess = true;
       } else {
         this.alertService.SetToast({type: 'error', message: `Registrasi Gagal : ${res.error.error.error.message}`});
       }
@@ -95,9 +95,32 @@ export class AppComponent implements OnInit {
       if (res.isSuccess) {
         this.isSuccess = true;
         this.alertService.SetToast({type: 'success', message: 'Linking success'});
-        this.isSuccess = true;
       } else {
         this.alertService.SetToast({type: 'error', message: `Linking Gagal : ${res.error.error.error.message}`});
+      }
+    });
+  }
+
+  onClickGoogle() {
+    this.isLoadingGoogle = true;
+    this.communityApi.googleSignIn().then((result) => {
+      if (result.isSuccess) {
+        const payload: payloadReq = {
+          channelId: this.channelId as string,
+          email: result.value.user.email || '',
+          mode: 'google',
+        }
+        this.communityApi.regisChannel(payload).then( res => {
+          this.isLoadingGoogle = false;
+          if (res.isSuccess) {
+            this.isSuccess = true;
+            this.alertService.SetToast({type: 'success', message: 'Register dengan Google Berhasil'});
+          } else {
+            this.alertService.SetToast({type: 'error', message: `Register dengan Google gagal : ${res.error.error.error.message}`});
+          }
+        });
+      } else {
+        this.alertService.SetToast({type: 'error', message: `Register dengan Google gagal: ${result.error}`});
       }
     });
   }

@@ -1,9 +1,10 @@
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
 import { failure, success } from "../../shared/libs/error";
 import { payloadNewReq } from "../models";
 import { lastValueFrom } from "rxjs";
 import { environment } from "../../../environments/environment";
+import { Auth, GoogleAuthProvider, signInWithPopup } from "@angular/fire/auth";
 
 @Injectable({
     providedIn: 'root',
@@ -11,7 +12,7 @@ import { environment } from "../../../environments/environment";
 
 export class CommunityApiComponent {
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private auth: Auth = inject(Auth)) {
      }
 
     async regisChannel(payload: any) {
@@ -22,6 +23,17 @@ export class CommunityApiComponent {
         } catch (error) {
             const errors = error as HttpErrorResponse;
             return failure(errors);
+        }
+    }
+
+    async googleSignIn() {
+        const provider = new GoogleAuthProvider();
+        try {
+            provider.setCustomParameters({ prompt: 'select_account' });
+            const result = await signInWithPopup(this.auth, provider);
+            return success(result);
+        } catch (error) {
+            return failure('AUTH.USER_SIGN_IN_FAILED');
         }
     }
 }

@@ -1,4 +1,4 @@
-    <div class="flex justify-center lg:mt-0" *ngIf="type === 'register'">
+    <div class="flex justify-center lg:mt-0 h-screen" *ngIf="type === 'register'">
       <div class="w-full max-w-md bg-white" *ngIf="isSuccess === false">
         <img src="assets/images/bg-appdet.png" alt="Appdet Logo" class="w-full" />
         <div class="relative bg-white text-slate-900">
@@ -159,17 +159,23 @@
             <button
               type="button"
               class="flex w-full items-center justify-center gap-3 rounded-[8px] border border-slate-200 bg-[#F3F2F7] py-3 text-sm font-semibold text-slate-700 transition hover:border-purple-400 hover:text-purple-600"
+              (click)="onClickGoogle()"
+              [ngClass]="{'bg-opacity-50': isLoadingGoogle}"
             >
+            <svg *ngIf="isLoadingGoogle" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white absolute left-[20px]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
               <svg class="h-5 w-5" viewBox="0 0 533.5 544.3" xmlns="http://www.w3.org/2000/svg">
                 <path fill="#4285f4" d="M533.5 278.4c0-17.4-1.6-34.1-4.7-50.4H272v95.4h147.5c-6.4 34.4-25.9 63.5-55.2 83v68h89.2c52.3-48.2 79.9-119.2 79.9-196z" />
                 <path fill="#34a853" d="M272 544.3c74.7 0 137.3-24.7 183-67.5l-89.2-68c-24.7 16.6-56.4 26.3-93.8 26.3-72 0-133-48.7-154.7-114.5H25.5v71.8c45.3 89.9 138.4 151.9 246.5 151.9z" />
                 <path fill="#fbbc05" d="M117.3 320.6c-10.7-31.9-10.7-66.2 0-98.1V150.7H25.5c-45.4 89.9-45.4 196.9 0 286.8l91.8-70.9z" />
                 <path fill="#ea4335" d="M272 107.7c39.9-.6 78.1 14.7 107.3 42.8l79.8-79.8C408.8 24.5 343.3-2.2 272 0 163.9 0 70.8 62.3 25.5 151.9l91.8 71c21.6-65.9 82.7-115.2 154.7-115.2z" />
               </svg>
-              Daftar dengan Google
+              {{ isLoadingGoogle ? 'Memproses...' : 'Daftar dengan Google' }}
             </button>
           </form>
-          <div class="flex flex-col justify-center items-center">
+          <div class="flex flex-col justify-center items-center pb-6">
             <p class="text-center text-sm text-[#121212] font-normal">
               Sudah memiliki akun Appdet?
             </p>
@@ -246,6 +252,21 @@
             </p>
             <a [routerLink]="['/community', channelId]" [queryParams]="{ type: 'register' }" class="font-bold text-sm text-purple-600 hover:text-purple-500 cursor-pointer">Buat Akun</a>
           </div>
+        </div>
+      </div>
+      <div class="w-full min-h-screen flex items-center justify-center" *ngIf="isSuccess">
+        <div class="success-container flex flex-col items-center justify-center w-full">
+            <img
+              src="assets/images/icons/btn-success.svg"
+              alt="AppFibr Logo"
+              class="logo"
+            />
+            <div class="flex flex-col gap-2">
+                <h1 class="success-container--title">
+                    Sambung Akun Berhasil
+                </h1>
+                <p class="success-container--subtitle">Silakan periksa email kamu dan klik Verifikasi Akun untuk menyelesaikan sambung akun.</p>
+            </div>
         </div>
       </div>
 
