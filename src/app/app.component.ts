@@ -41,6 +41,7 @@ export class AppComponent implements OnInit {
   isSuccess: boolean = false;
   type: string = ''
   channelName: string = ''
+  successMessage: string = ''
  
   constructor(private readonly fb: FormBuilder, private alertService: AlertsService, private communityApi: CommunityApiComponent) {}
 
@@ -74,7 +75,8 @@ export class AppComponent implements OnInit {
       this.isLoading = false;
       if (res.isSuccess) {
         this.isSuccess = true;
-        this.alertService.SetToast({type: 'success', message: 'Registration success'});
+        this.successMessage = (res.value as any).result.message;
+        // this.alertService.SetToast({type: 'success', message: (res.value as any).result.message});
       } else {
         this.alertService.SetToast({type: 'error', message: `Registrasi Gagal : ${res.error.error.error.message}`});
       }
@@ -97,7 +99,8 @@ export class AppComponent implements OnInit {
       this.isLoading = false;
       if (res.isSuccess) {
         this.isSuccess = true;
-        this.alertService.SetToast({type: 'success', message: 'Linking success'});
+        this.successMessage = (res.value as any).result.message;
+        // this.alertService.SetToast({type: 'success', message: (res.value as any).result.message});
       } else {
         this.alertService.SetToast({type: 'error', message: `Linking Gagal : ${res.error.error.error.message}`});
       }
@@ -117,7 +120,8 @@ export class AppComponent implements OnInit {
           this.isLoadingGoogle = false;
           if (res.isSuccess) {
             this.isSuccess = true;
-            this.alertService.SetToast({type: 'success', message: 'Register dengan Google Berhasil'});
+            this.successMessage = (res.value as any).result.message;
+            // this.alertService.SetToast({type: 'success', message: (res.value as any).result.message});
           } else {
             this.alertService.SetToast({type: 'error', message: `Register dengan Google gagal : ${res.error.error.error.message}`});
           }
