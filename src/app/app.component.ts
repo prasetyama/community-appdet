@@ -48,7 +48,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     const url = window.location.pathname;
     const parts = url.split('/');
-    this.channelId = parts[2];
+    this.channelId = parts[1];
 
     this.route.queryParamMap.subscribe(params => {
       this.type = params.get('type') || 'register'
